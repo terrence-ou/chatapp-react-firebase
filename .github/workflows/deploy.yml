@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  VITE_API_KEY: true
+  VITE_API_KEY: ${{secrets.VITE_API_KEY}}
 
 jobs:
   # Single deploy job since we're just deploying
