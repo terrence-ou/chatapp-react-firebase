@@ -4,21 +4,21 @@ import { signOut } from "firebase/auth";
 interface AuthWrapperProps {
   authToken: string | null;
   handleSetAuthToken: (token: string | null) => void;
-  handleSetIsInChat: (currState: boolean) => void;
+  handleSetRoom: (currRoom: string | null) => void;
   children?: React.ReactNode;
 }
 
 const AuthWrapper = ({
   authToken,
   handleSetAuthToken,
-  handleSetIsInChat,
+  handleSetRoom,
   children,
 }: AuthWrapperProps) => {
   const userSignOut = async () => {
     await signOut(auth);
     localStorage.removeItem("auth-token");
     handleSetAuthToken(null);
-    handleSetIsInChat(false);
+    handleSetRoom(null);
   };
 
   return (
