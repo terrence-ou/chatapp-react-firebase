@@ -9,7 +9,7 @@ function App() {
     localStorage.getItem("auth-token")
   );
   const [isInChat, setIsInChat] = useState<boolean>(false);
-
+  console.log(isInChat);
   const handleSetAuthToken = (token: string | null) => {
     setAuthToken(token);
   };
