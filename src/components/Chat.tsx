@@ -69,7 +69,7 @@ const Chat = ({ room, handleSetRoom }: ChatProps) => {
       snapshot.forEach((doc) => {
         messageStore.push({ ...doc.data(), id: doc.id } as messageDataType);
       });
-      messageStore.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds);
+      messageStore.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds); // TODO: Comment out to see if sorting works
       handleSetMessageHist(messageStore);
     });
 

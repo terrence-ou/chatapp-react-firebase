@@ -9,7 +9,7 @@ const Auth = ({ handleSetAuthToken }: AuthProps) => {
   const signinWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      localStorage.setItem("auth-token", result.user.refreshToken);
+      localStorage.setItem("auth-uid", result.user.uid);
       handleSetAuthToken(result.user.refreshToken);
     } catch (err) {
       console.error(err);

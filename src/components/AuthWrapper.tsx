@@ -4,27 +4,25 @@ import { signOut } from "firebase/auth";
 interface AuthWrapperProps {
   authToken: string | null;
   handleSetAuthToken: (token: string | null) => void;
-  handleSetRoom: (currRoom: string | null) => void;
   children?: React.ReactNode;
 }
 
 const AuthWrapper = ({
   authToken,
   handleSetAuthToken,
-  handleSetRoom,
+  // handleSetRoom,
   children,
 }: AuthWrapperProps) => {
   const userSignOut = async () => {
     await signOut(auth);
-    localStorage.removeItem("auth-token");
+    localStorage.removeItem("auth-uid");
     handleSetAuthToken(null);
-    handleSetRoom(null);
   };
 
   return (
     <div>
       <div>
-        <h1>Chat App</h1>
+        <h3>Chat App</h3>
       </div>
       <div>{children}</div>
       {authToken && (
