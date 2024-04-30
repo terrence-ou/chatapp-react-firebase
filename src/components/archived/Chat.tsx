@@ -8,7 +8,7 @@ import {
   where,
   Timestamp,
 } from "firebase/firestore";
-import { auth, db } from "../firebase-config";
+import { auth, db } from "../../firebase-config";
 
 /* Types */
 

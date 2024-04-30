@@ -2,10 +2,9 @@ import { useState } from "react";
 
 import Auth from "./components/Auth";
 import AuthWrapper from "./components/AuthWrapper";
-// import Chat from "./components/Chat";
 
+import ChatRoomContainer from "./components/ChatRoomContainer";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
 
 function App() {
   const [authUID, setAuthUID] = useState<string | null>(
@@ -22,7 +21,7 @@ function App() {
         {!authUID ? (
           <Auth handleSetAuthToken={handleSetAuthToken} />
         ) : (
-          <Sidebar />
+          <ChatRoomContainer />
         )}
       </AuthWrapper>
     </main>

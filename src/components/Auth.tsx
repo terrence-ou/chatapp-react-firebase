@@ -10,6 +10,7 @@ const Auth = ({ handleSetAuthToken }: AuthProps) => {
     try {
       const result = await signInWithPopup(auth, provider);
       localStorage.setItem("auth-uid", result.user.uid);
+      localStorage.setItem("auth-name", result.user.displayName!);
       handleSetAuthToken(result.user.refreshToken);
     } catch (err) {
       console.error(err);
