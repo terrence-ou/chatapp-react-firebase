@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-import { ChatRoomType } from "../types";
+import type { ChatRoomType } from "../types";
 
 interface messageSliceType {
   roomId: string | null;

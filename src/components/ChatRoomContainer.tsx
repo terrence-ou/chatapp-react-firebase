@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import { onSnapshot, query, where, collection } from "firebase/firestore";
+import { useAppDispatch } from "../hooks/reduxHooks";
+import { messageActions } from "../features/messageSlice";
+import type { ChatRoomType } from "../types"; // chatRoom data datatype
 import { db } from "../firebase-config";
 
 import Sidebar from "./Sidebar";
-
-import { ChatRoomType } from "../types"; // chatRoom data datatype
 import ChatMsgs from "./ChatMsgs";
 
 /* The body of the ChatRoomContainer component */
 const ChatRoomContainer = () => {
+  const dispatch = useAppDispatch();
+
   // complete list of chat rooms related to the current user
   const [chats, setChats] = useState<ChatRoomType[]>([]);
   // the current room id controls the display of the display messages
@@ -16,8 +19,6 @@ const ChatRoomContainer = () => {
 
   const chatRoomRef = collection(db, "chatRooms");
   const currUID = localStorage.getItem("auth-uid");
-
-  // onSend => TODO
 
   const handleSetCurrRoomID = (id: string) => {
     setCurrRoomID(id);
@@ -38,6 +39,7 @@ const ChatRoomContainer = () => {
       snapshot.forEach((doc) => {
         currentChats.push({ ...doc.data(), id: doc.id } as ChatRoomType);
       });
+      dispatch(messageActions.SET_CHATS(currentChats));
       handleSetChats(currentChats);
     });
 
