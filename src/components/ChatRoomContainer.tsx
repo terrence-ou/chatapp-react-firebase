@@ -17,6 +17,8 @@ const ChatRoomContainer = () => {
   const chatRoomRef = collection(db, "chatRooms");
   const currUID = localStorage.getItem("auth-uid");
 
+  // onSend => TODO
+
   const handleSetCurrRoomID = (id: string) => {
     setCurrRoomID(id);
   };
