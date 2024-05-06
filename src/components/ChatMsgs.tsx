@@ -1,14 +1,13 @@
-import { ChatRoomType } from "../types";
-interface ChatMsgsProps {
-  chats: ChatRoomType[];
-  currRoomID: string | null;
-}
+import { useAppSelector } from "../hooks/reduxHooks";
+import type { RootState } from "../store";
 
-const ChatMsgs = ({ chats, currRoomID }: ChatMsgsProps) => {
-  const currChats = currRoomID
-    ? chats.filter((data) => data.id === currRoomID)
+const ChatMsgs = () => {
+  const { chats, roomId } = useAppSelector(
+    (state: RootState) => state.messages
+  );
+  const currChats = roomId
+    ? chats.filter((data) => data.id === roomId)
     : undefined;
-
   return (
     <div>
       <h3>Messages</h3>

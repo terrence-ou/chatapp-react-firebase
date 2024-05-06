@@ -1,13 +1,10 @@
-import { ChatRoomType } from "../types";
+import { useAppSelector } from "../hooks/reduxHooks";
+import { RootState } from "../store";
 
 import ChatCard from "./ChatCard";
 
-interface SidebarType {
-  chats: ChatRoomType[];
-  handleSetCurrRoomID: (id: string) => void;
-}
-
-const Sidebar = ({ chats, handleSetCurrRoomID }: SidebarType) => {
+const Sidebar = () => {
+  const chats = useAppSelector((state: RootState) => state.messages.chats);
   return (
     <div>
       <h3>Chat rooms</h3>
@@ -20,7 +17,7 @@ const Sidebar = ({ chats, handleSetCurrRoomID }: SidebarType) => {
             key={data.id}
             address={data.address}
             names={names}
-            onClick={() => handleSetCurrRoomID(data.id)}
+            roomId={data.id}
           />
         );
       })}

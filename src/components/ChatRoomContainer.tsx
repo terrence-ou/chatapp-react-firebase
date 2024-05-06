@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { onSnapshot, query, where, collection } from "firebase/firestore";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { messageActions } from "../features/messageSlice";
@@ -12,20 +12,8 @@ import ChatMsgs from "./ChatMsgs";
 const ChatRoomContainer = () => {
   const dispatch = useAppDispatch();
 
-  // complete list of chat rooms related to the current user
-  const [chats, setChats] = useState<ChatRoomType[]>([]);
-  // the current room id controls the display of the display messages
-  const [currRoomID, setCurrRoomID] = useState<string | null>(null);
-
   const chatRoomRef = collection(db, "chatRooms");
   const currUID = localStorage.getItem("auth-uid");
-
-  const handleSetCurrRoomID = (id: string) => {
-    setCurrRoomID(id);
-  };
-  const handleSetChats = (newChats: ChatRoomType[]) => {
-    setChats(newChats);
-  };
 
   // Listen to the server to get the message updates
   useEffect(() => {
@@ -40,7 +28,6 @@ const ChatRoomContainer = () => {
         currentChats.push({ ...doc.data(), id: doc.id } as ChatRoomType);
       });
       dispatch(messageActions.SET_CHATS(currentChats));
-      handleSetChats(currentChats);
     });
 
     return () => unsubscribe();
@@ -48,8 +35,8 @@ const ChatRoomContainer = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar chats={chats} handleSetCurrRoomID={handleSetCurrRoomID} />
-      <ChatMsgs chats={chats} currRoomID={currRoomID} />
+      <Sidebar />
+      <ChatMsgs />
     </div>
   );
 };
