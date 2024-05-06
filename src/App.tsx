@@ -4,7 +4,6 @@ import Auth from "./components/Auth";
 import AuthWrapper from "./components/AuthWrapper";
 
 import ChatRoomContainer from "./components/ChatRoomContainer";
-import "./App.css";
 
 function App() {
   const [authUID, setAuthUID] = useState<string | null>(

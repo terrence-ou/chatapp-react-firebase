@@ -13,18 +13,19 @@ const ChatCard = ({ names, address, roomId }: ChatCardType) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div>
-      <button onClick={() => dispatch(messageActions.SET_ROOM(roomId))}>
+    <div className="chatcard">
+      <button
+        className="chatcard__btn"
+        onClick={() => dispatch(messageActions.SET_ROOM(roomId))}
+      >
         {names.map((name) => {
           if (currName !== name)
             return (
-              <div key={name}>
+              <div key={name} className="font-bold">
                 <span>{name}</span>
-                <br></br>
               </div>
             );
         })}
-        <br />
         <span>{address}</span>
       </button>
     </div>

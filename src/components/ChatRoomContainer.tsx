@@ -34,7 +34,7 @@ const ChatRoomContainer = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="chatroom">
       <Sidebar />
       <ChatMsgs />
     </div>

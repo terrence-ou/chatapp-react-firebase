@@ -9,7 +9,7 @@ const ChatMsgs = () => {
     ? chats.filter((data) => data.id === roomId)
     : undefined;
   return (
-    <div>
+    <div className="messages">
       <h3>Messages</h3>
       {!currChats ? (
         <p>no room selected</p>
