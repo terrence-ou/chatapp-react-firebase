@@ -22,6 +22,17 @@ main {
   @apply col-span-2 flex flex-col justify-end p-12 gap-8
 }
 
+.messages__hist {
+  @apply px-4 flex flex-col gap-5
+}
+
+.messages__form {
+  @apply flex gap-9
+}
+
+.messages__textarea {
+  @apply flex-1 h-20 text-lg border px-4 py-2 resize-none rounded-md
+}
 
 .chatcard {
   @apply text-center flex flex-col items-center

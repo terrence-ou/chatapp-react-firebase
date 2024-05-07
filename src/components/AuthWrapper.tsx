@@ -1,5 +1,4 @@
-import { auth } from "../firebase-config";
-import { signOut } from "firebase/auth";
+import { userSignOut } from "../firebase/utils";
 
 interface AuthWrapperProps {
   authToken: string | null;
@@ -12,20 +11,15 @@ const AuthWrapper = ({
   handleSetAuthToken,
   children,
 }: AuthWrapperProps) => {
-  const userSignOut = async () => {
-    await signOut(auth);
-    localStorage.removeItem("auth-uid");
-    localStorage.removeItem("auth-name");
-    handleSetAuthToken(null);
-  };
-
   return (
     <>
       <div>
         {authToken && (
           <div>
             <p>{localStorage.getItem("auth-name")}</p>
-            <button onClick={userSignOut}>Sign Out</button>
+            <button onClick={() => userSignOut(handleSetAuthToken)}>
+              Sign Out
+            </button>
           </div>
         )}
       </div>

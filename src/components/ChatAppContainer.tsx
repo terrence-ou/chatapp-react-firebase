@@ -3,7 +3,7 @@ import { onSnapshot, query, where, collection } from "firebase/firestore";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { messageActions } from "../features/messageSlice";
 import type { ChatRoomType } from "../types"; // chatRoom data datatype
-import { db } from "../firebase-config";
+import { db } from "../firebase/firebase-config";
 
 import Sidebar from "./SideBar/Sidebar";
 import MessageView from "./Messages/MessageView";
