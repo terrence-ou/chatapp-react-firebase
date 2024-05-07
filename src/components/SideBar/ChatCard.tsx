@@ -1,5 +1,5 @@
-import { useAppDispatch } from "../hooks/reduxHooks";
-import { messageActions } from "../features/messageSlice";
+import { useAppDispatch } from "../../hooks/reduxHooks";
+import { messageActions } from "../../features/messageSlice";
 
 interface ChatCardType {
   names: string[];

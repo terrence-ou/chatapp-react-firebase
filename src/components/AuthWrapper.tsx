@@ -10,7 +10,6 @@ interface AuthWrapperProps {
 const AuthWrapper = ({
   authToken,
   handleSetAuthToken,
-  // handleSetRoom,
   children,
 }: AuthWrapperProps) => {
   const userSignOut = async () => {

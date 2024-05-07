@@ -11,7 +11,7 @@ main {
 }
 
 .chatroom {
-  @apply grid grid-cols-3 gap-10 flex-1;
+  @apply grid grid-cols-3 flex-1;
 }
 
 .sidebar {
@@ -19,7 +19,7 @@ main {
 }
 
 .messages {
-  @apply col-span-2
+  @apply col-span-2 flex flex-col justify-end p-12 gap-8
 }
 
 

@@ -1,5 +1,5 @@
-import { useAppSelector } from "../hooks/reduxHooks";
-import { RootState } from "../store";
+import { useAppSelector } from "../../hooks/reduxHooks";
+import { RootState } from "../../store";
 
 import ChatCard from "./ChatCard";
 

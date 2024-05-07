@@ -5,11 +5,11 @@ import { messageActions } from "../features/messageSlice";
 import type { ChatRoomType } from "../types"; // chatRoom data datatype
 import { db } from "../firebase-config";
 
-import Sidebar from "./Sidebar";
-import ChatMsgs from "./ChatMsgs";
+import Sidebar from "./SideBar/Sidebar";
+import MessageView from "./Messages/MessageView";
 
 /* The body of the ChatRoomContainer component */
-const ChatRoomContainer = () => {
+const ChatAppContainer = () => {
   const dispatch = useAppDispatch();
 
   const chatRoomRef = collection(db, "chatRooms");
@@ -36,9 +36,9 @@ const ChatRoomContainer = () => {
   return (
     <div className="chatroom">
       <Sidebar />
-      <ChatMsgs />
+      <MessageView />
     </div>
   );
 };
 
-export default ChatRoomContainer;
+export default ChatAppContainer;

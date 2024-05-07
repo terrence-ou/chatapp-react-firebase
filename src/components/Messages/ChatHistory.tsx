@@ -1,7 +1,7 @@
-import { useAppSelector } from "../hooks/reduxHooks";
-import type { RootState } from "../store";
+import { useAppSelector } from "../../hooks/reduxHooks";
+import type { RootState } from "../../store";
 
-const ChatMsgs = () => {
+const ChatHistory = () => {
   const { chats, roomId } = useAppSelector(
     (state: RootState) => state.messages
   );
@@ -9,8 +9,7 @@ const ChatMsgs = () => {
     ? chats.filter((data) => data.id === roomId)
     : undefined;
   return (
-    <div className="messages">
-      <h3>Messages</h3>
+    <div>
       {!currChats ? (
         <p>no room selected</p>
       ) : currChats.length === 0 ? (
@@ -28,4 +27,4 @@ const ChatMsgs = () => {
   );
 };
 
-export default ChatMsgs;
+export default ChatHistory;
