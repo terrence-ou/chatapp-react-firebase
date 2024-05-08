@@ -12,12 +12,10 @@ const Sidebar = () => {
       {chats.map((data) => {
         let otherName = undefined;
         let otherPhotoURL = undefined;
-        let otherActive = false;
         const otherUID = data.participants.filter((uid) => uid !== currUID);
         if (otherUID.length > 0 && otherUID[0] in members) {
           otherName = members[otherUID[0]].displayName;
           otherPhotoURL = members[otherUID[0]].photoURL;
-          otherActive = members[otherUID[0]].online;
         }
 
         return (
@@ -27,7 +25,6 @@ const Sidebar = () => {
             name={otherName}
             roomId={data.id}
             photoURL={otherPhotoURL}
-            // active={otherActive}
           />
         );
       })}
