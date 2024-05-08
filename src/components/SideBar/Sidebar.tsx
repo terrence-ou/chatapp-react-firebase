@@ -6,19 +6,28 @@ import ChatCard from "./ChatCard";
 const Sidebar = () => {
   const chats = useAppSelector((state: RootState) => state.messages.chats);
   const members = useAppSelector((state: RootState) => state.messages.members);
-  console.log(members);
+  const currUID = localStorage.getItem("auth-uid");
   return (
     <div className="sidebar">
       {chats.map((data) => {
-        const names = Array.from(
-          new Set(data.messages.map((message) => message.sender))
-        );
+        let otherName = undefined;
+        let otherPhotoURL = undefined;
+        let otherActive = false;
+        const otherUID = data.participants.filter((uid) => uid !== currUID);
+        if (otherUID.length > 0 && otherUID[0] in members) {
+          otherName = members[otherUID[0]].displayName;
+          otherPhotoURL = members[otherUID[0]].photoURL;
+          otherActive = members[otherUID[0]].online;
+        }
+
         return (
           <ChatCard
             key={data.id}
             address={data.address}
-            names={names}
+            name={otherName}
             roomId={data.id}
+            photoURL={otherPhotoURL}
+            // active={otherActive}
           />
         );
       })}

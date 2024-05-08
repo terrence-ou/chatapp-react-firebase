@@ -39,5 +39,13 @@ main {
 }
 
 .chatcard__btn {
-  @apply w-[90%] rounded-xl px-6 py-3 flex flex-col gap-0 justify-center text-left bg-white hover:shadow-lg
+  @apply w-[90%] rounded-xl px-6 py-3 flex gap-3 items-center text-left bg-white hover:shadow-lg
+}
+
+.chatcard__img {
+  @apply h-16 rounded-full;
+}
+
+.chatcard__img-inactive {
+  @apply opacity-80 grayscale
 }

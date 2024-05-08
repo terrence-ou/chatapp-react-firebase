@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "../../hooks/reduxHooks";
 import { sendMessageToFb } from "../../firebase/utils";
-import { LOCAL_NAME } from "../../consts";
+import { LOCAL_UID } from "../../consts";
 import type { MessageType } from "../../types";
 
 const UserInput = () => {
@@ -15,15 +15,15 @@ const UserInput = () => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (message.length === 0) return;
-    const currUserName = localStorage.getItem(LOCAL_NAME);
-    if (!currUserName || !roomId) {
+    const currUID = localStorage.getItem(LOCAL_UID);
+    if (!currUID || !roomId) {
       console.error("username or room id invalid");
       return;
     }
 
     const newMessage: MessageType = {
       createdAt: new Date().getTime(),
-      sender: currUserName,
+      sender: currUID,
       text: message,
     };
 

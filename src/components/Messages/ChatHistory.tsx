@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/reduxHooks";
-import { LOCAL_NAME } from "../../consts";
+import { LOCAL_UID } from "../../consts";
 import type { RootState } from "../../store";
 
 const ChatHistory = () => {
@@ -7,7 +7,7 @@ const ChatHistory = () => {
     (state: RootState) => state.messages
   );
 
-  const currUser = localStorage.getItem(LOCAL_NAME);
+  const currUser = localStorage.getItem(LOCAL_UID);
   const currChats = roomId
     ? chats.filter((data) => data.id === roomId)
     : undefined;
