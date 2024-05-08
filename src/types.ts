@@ -10,3 +10,13 @@ export interface ChatRoomType {
   messages: MessageType[];
   id: string;
 }
+
+export interface memberType {
+  displayName: string;
+  photoURL: string;
+  online: boolean;
+  uid: string;
+  email: string;
+}
+
+export type membersObj = { [key: string]: memberType };

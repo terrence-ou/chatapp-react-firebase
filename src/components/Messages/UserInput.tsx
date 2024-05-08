@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "../../hooks/reduxHooks";
 import { sendMessageToFb } from "../../firebase/utils";
+import { LOCAL_NAME } from "../../consts";
 import type { MessageType } from "../../types";
 
 const UserInput = () => {
@@ -14,7 +15,7 @@ const UserInput = () => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (message.length === 0) return;
-    const currUserName = localStorage.getItem("auth-name");
+    const currUserName = localStorage.getItem(LOCAL_NAME);
     if (!currUserName || !roomId) {
       console.error("username or room id invalid");
       return;

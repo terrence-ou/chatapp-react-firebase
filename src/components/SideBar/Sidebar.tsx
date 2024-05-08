@@ -5,6 +5,8 @@ import ChatCard from "./ChatCard";
 
 const Sidebar = () => {
   const chats = useAppSelector((state: RootState) => state.messages.chats);
+  const members = useAppSelector((state: RootState) => state.messages.members);
+  console.log(members);
   return (
     <div className="sidebar">
       {chats.map((data) => {
