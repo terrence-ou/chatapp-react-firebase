@@ -17,7 +17,6 @@ const Sidebar = () => {
           otherName = members[otherUID[0]].displayName;
           otherPhotoURL = members[otherUID[0]].photoURL;
         }
-
         return (
           <ChatCard
             key={data.id}
