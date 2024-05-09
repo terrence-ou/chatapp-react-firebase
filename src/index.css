@@ -31,7 +31,15 @@ main {
 }
 
 .messages__hist {
-  @apply px-4 flex flex-col gap-6
+  @apply px-4 flex flex-col justify-end gap-6 overflow-y-auto flex-1
+}
+
+.messages__form {
+  @apply flex gap-9
+}
+
+.messages__textarea {
+  @apply flex-1 h-20 text-lg border px-4 py-2 resize-none rounded-md
 }
 
 .message {
@@ -54,18 +62,17 @@ main {
   @apply w-fit bg-slate-200 py-2 px-3 rounded-lg h-fit
 }
 
+.message__p-null{
+  @apply m-auto text-3xl font-semibold text-zinc-300
+}
+
 .message__img {
   @apply h-12 rounded-full
 }
 
-.messages__form {
-  @apply flex gap-9
+.message__date {
+  @apply text-sm font-light italic text-zinc-500 py-1
 }
-
-.messages__textarea {
-  @apply flex-1 h-20 text-lg border px-4 py-2 resize-none rounded-md
-}
-
 .chatcard {
   @apply text-center flex flex-col items-center
 }

@@ -14,9 +14,9 @@ const ChatHistory = () => {
   return (
     <div className="messages__hist">
       {!currChats ? (
-        <p>no room selected</p>
+        <p className="message__p-null">No Room Selected</p>
       ) : currChats.length === 0 ? (
-        <p>No message</p>
+        <p>No message in this room</p>
       ) : (
         currChats[0].messages.map((msg) => {
           return <Message key={msg.createdAt} msg={msg} />;
