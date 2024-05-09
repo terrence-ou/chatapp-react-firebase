@@ -1,6 +1,6 @@
 import useSnapshot from "../hooks/useSnapshot";
 import Sidebar from "./SideBar/Sidebar";
-import MessageView from "./Messages/MessageView";
+import ChatView from "./Messages/ChatView";
 
 /* The body of the ChatRoomContainer component */
 const ChatAppContainer = () => {
@@ -8,7 +8,7 @@ const ChatAppContainer = () => {
   return (
     <div className="chatroom">
       <Sidebar />
-      <MessageView />
+      <ChatView />
     </div>
   );
 };

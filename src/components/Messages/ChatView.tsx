@@ -1,7 +1,7 @@
 import ChatHistory from "./ChatHistory";
 import UserInput from "./UserInput";
 
-const MessageView = () => {
+const ChatView = () => {
   return (
     <div className="messages">
       <ChatHistory />
@@ -10,4 +10,4 @@ const MessageView = () => {
   );
 };
 
-export default MessageView;
+export default ChatView;
