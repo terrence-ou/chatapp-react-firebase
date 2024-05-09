@@ -1,30 +1,10 @@
-import { useState } from "react";
-
+import { useAppSelector } from "./hooks/reduxHooks";
 import Auth from "./components/Auth";
-import AuthWrapper from "./components/AuthWrapper";
-
 import ChatAppContainer from "./components/ChatAppContainer";
 
 function App() {
-  const [authUID, setAuthUID] = useState<string | null>(
-    localStorage.getItem("auth-uid")
-  );
-
-  const handleSetAuthToken = (token: string | null) => {
-    setAuthUID(token);
-  };
-
-  return (
-    <main>
-      <AuthWrapper authToken={authUID} handleSetAuthToken={handleSetAuthToken}>
-        {!authUID ? (
-          <Auth handleSetAuthToken={handleSetAuthToken} />
-        ) : (
-          <ChatAppContainer />
-        )}
-      </AuthWrapper>
-    </main>
-  );
+  const authUID = useAppSelector((state) => state.messages.authUID);
+  return <main>{!authUID ? <Auth /> : <ChatAppContainer />}</main>;
 }
 
 export default App;

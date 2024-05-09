@@ -18,7 +18,6 @@ const ChatCard = ({
   // active,
 }: ChatCardType) => {
   const dispatch = useAppDispatch();
-
   return (
     <div className="chatcard">
       <button
@@ -26,7 +25,11 @@ const ChatCard = ({
         onClick={() => dispatch(messageActions.SET_ROOM(roomId))}
       >
         {photoURL !== undefined && (
-          <img src={photoURL} className={"chatcard__img"} />
+          <img
+            src={photoURL}
+            className="chatcard__img"
+            alt={`${name}'s photo`}
+          />
         )}
         {name !== undefined && (
           <div key={name}>

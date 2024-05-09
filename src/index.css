@@ -15,7 +15,15 @@ main {
 }
 
 .sidebar {
-  @apply col-span-1 flex flex-col gap-4 bg-slate-100 p-4
+  @apply col-span-1 flex flex-col justify-between bg-slate-100 px-12 py-14
+}
+
+.sidebar__rooms {
+  @apply flex flex-col gap-4;
+}
+
+.sidebar__user {
+  @apply flex gap-6
 }
 
 .messages {
@@ -39,7 +47,7 @@ main {
 }
 
 .chatcard__btn {
-  @apply w-[90%] rounded-xl px-6 py-3 flex gap-3 items-center text-left bg-white hover:shadow-lg
+  @apply w-full rounded-xl px-6 py-3 flex gap-3 items-center text-left bg-white hover:shadow-lg
 }
 
 .chatcard__img {

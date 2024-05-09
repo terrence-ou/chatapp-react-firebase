@@ -14,15 +14,12 @@ import {
 import { LOCAL_UID, LOCAL_NAME } from "../consts";
 import type { MessageType } from "../types";
 
-type authSetter = (token: string | null) => void;
-
 // Sign-in function
-export const signInWithGoogle = async (handleSetAuthToken: authSetter) => {
+export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     localStorage.setItem(LOCAL_UID, result.user.uid);
     localStorage.setItem(LOCAL_NAME, result.user.displayName!);
-    handleSetAuthToken(result.user.refreshToken);
     await updateUserData(result.user);
   } catch (error) {
     console.error("Failed to sign in", error);
@@ -30,7 +27,7 @@ export const signInWithGoogle = async (handleSetAuthToken: authSetter) => {
 };
 
 // Sign-out function
-export const userSignOut = async (handleSetAuthToken: authSetter) => {
+export const userSignOut = async () => {
   try {
     await signOut(auth);
     // set online to false
@@ -39,7 +36,6 @@ export const userSignOut = async (handleSetAuthToken: authSetter) => {
     });
     localStorage.removeItem(LOCAL_UID);
     localStorage.removeItem(LOCAL_NAME);
-    handleSetAuthToken(null);
   } catch (error) {
     console.error("Failed to sign out", error);
   }
