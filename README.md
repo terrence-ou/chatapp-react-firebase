@@ -1,4 +1,4 @@
-:point_right: https://terrence-ou.github.io/messageSystem/
+:point_right: https://terrence-ou.github.io/chatapp-react-firebase/
 
 # React + TypeScript + Vite
 
