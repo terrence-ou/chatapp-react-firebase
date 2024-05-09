@@ -6,20 +6,14 @@ interface AuthWrapperProps {
   children?: React.ReactNode;
 }
 
-const AuthWrapper = ({
-  authToken,
-  handleSetAuthToken,
-  children,
-}: AuthWrapperProps) => {
+const AuthWrapper = ({ authToken, children }: AuthWrapperProps) => {
   return (
     <>
       <div>
         {authToken && (
           <div>
             <p>{localStorage.getItem("auth-name")}</p>
-            <button onClick={() => userSignOut(handleSetAuthToken)}>
-              Sign Out
-            </button>
+            <button onClick={() => userSignOut()}>Sign Out</button>
           </div>
         )}
       </div>
